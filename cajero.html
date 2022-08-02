@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script type="text/javascript"
+            src="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap"></script>
+    <title>Cajero</title>
+    <script defer src="./script.js"></script>
+    <!--    <link rel="stylesheet" href="style.css">-->
+    <style>
+
+        /*****************************************/
+        /* *********** Text and Basics ************/
+        /*****************************************/
+
+        body {
+            height: 100vh;
+            background: linear-gradient(90deg, #9C6ED6 0%, #2C3BDA 100%);
+            position: relative;
+            overflow-x: hidden;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 500;
+        }
+
+        a, a:hover {
+            color: #2C379F;
+        }
+
+        ::placeholder {
+            color: #2C379F;
+            font-weight: 300;
+        }
+
+        .btn,
+        .small, small {
+            font-size: x-large;
+
+        }
+
+
+
+
+        .login-card {
+            z-index: 10;
+            background-color: transparent;
+            border: 0;
+            border-radius: 0;
+            color: #666;
+            width: 80vw;
+            height: 80vh;
+            position: relative;
+        }
+
+        .login-card .left, .login-card .right {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .login-card .left {
+            color: #fff;
+            background: linear-gradient(205.64deg, rgba(102, 73, 186, 0.8) 0%, rgba(73, 83, 186, 0.8) 100%);
+            backdrop-filter: blur(35px);
+        }
+
+        .upLeftCard{
+            margin: 0;
+            height: 40%;
+            width: 100%;
+        }
+
+        .downLeftCard{
+            margin: 0;
+            height: 60%;
+            border-top-left-radius: 60px;
+            border-top-right-radius: 60px;
+            background: linear-gradient(205.64deg, rgba(82, 58, 149, 0.8) 0%, rgba(55, 63, 141, 0.8) 100%);
+        }
+
+        .rightLeftCol{
+            margin: 0;
+            padding: 0;
+            width: 50%;
+            height: 100%;
+            background-color: #0a53be;
+        }
+
+        .rightRightCol{
+            margin: 0;
+            padding: 0;
+            width: 50%;
+            height: 100%;
+            background-color: red;
+        }
+
+        .rightHeaderRow{
+            width: 100%;
+            height: 10%;
+            padding: 0;
+            margin: 0;
+        }
+        .rightMainRow{
+            width: 100%;
+            height: 90%;
+            padding: 0;
+            margin: 0;
+        }
+
+        .botones{
+            display: flex;
+            flex-direction: column;
+        }
+
+        hr{
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            border: 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+
+
+
+
+
+
+
+        .login-card .left .caption {
+            position: relative;
+            z-index: 5;
+        }
+
+        .login-card .right {
+            font-size: .75rem;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(45px);
+        }
+
+
+        .login-card .btn-signup {
+            display: inline-block;
+            color: #FFFFFF;
+            font-size: 14px;
+            background: rgba(132, 137, 199, 0.15);
+            border: 1px solid #8279E8;
+            box-sizing: border-box;
+            border-radius: 50px;
+            padding: .25rem 2rem;
+            margin: 1rem 0 0;
+        }
+
+
+
+
+        /*****************************************/
+        /* *********** Left Block Shapes ***********  */
+        /*****************************************/
+
+        .login-card .left .bg {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .login-card .left .bg > * {
+            position: absolute;
+        }
+
+        .login-card .left .bg .shape-1 {
+            top: 0;
+            right: 0;
+        }
+
+        .login-card .left .bg .shape-2 {
+            bottom: 0;
+            left: 0;
+        }
+
+        /*****************************************/
+        /* *********** Upper Card BG ***********  */
+        /*****************************************/
+        .card-bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .card-bg > * {
+            position: absolute;
+        }
+
+        .card-bg .shape-1 {
+            left: -10rem;
+            top: -10rem;
+        }
+
+        /*****************************************/
+        /* *********** Bottom shape ***********  */
+        /*****************************************/
+        .login-bg {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .login-bg > * {
+            position: absolute;
+        }
+
+        .login-bg .shape-2 {
+            right: -25rem;
+            bottom: -12rem;
+        }
+
+        /******************************************/
+        /* *********** Media queries ***********  */
+        /******************************************/
+        @media (max-width: 991px) {
+            .login-card {
+                width: calc(100% - 30px);
+                max-width: 900px;
+                height: auto;
+            }
+
+            .card-bg {
+                position: fixed;
+            }
+
+            .login-bg {
+                position: fixed;
+            }
+        }
+
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="card login-card ">
+                <div class="row no-gutters h-100">
+
+
+                    <!--                    /******************************************/-->
+                    <!--                    /* *********** Contenedor Izq ***********  */-->
+                    <!--                    /******************************************/-->
+                    <div class="col-lg-3 left no-gutters ">
+
+                        <div class="upLeftCard row justify-content-end align-content-center p-4" >
+                            <div class="caption text-center text-lg-center">
+                                <img src="https://picsum.photos/seed/picsum/150?random=3" class="rounded-circle m-2 " alt="img">
+                                <div class="welcome">Welcome again</div>
+                                <h1 class="h3">USERNAME</h1>
+                                <a class="btn btn-signup" href="#">Log Out</a>
+                            </div>
+                        </div>
+
+<!--                        <div class="downLeftCard row justify-content-center align-content-center " >-->
+<!--                            <div class="botones h-75 w-75 justify-content-center">-->
+<!--                                <button type="button" class="btn p-4 btn-outline-secondary ">Accounts</button>-->
+<!--                                <button type="button" class="btn p-4 btn-outline-secondary">Transactions</button>-->
+<!--                                <button type="button" class="btn p-4 btn-outline-secondary">Investments</button>-->
+<!--                                <button type="button" class="btn p-4 btn-outline-secondary">Bonus</button>-->
+<!--                                <hr>-->
+<!--                                <button type="button" class="btn p-4 btn-outline-secondary">Settings</button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+
+                        <!--                        /******************************************/-->
+                        <!--                        /* *********** Left Block Shapes ***********  */-->
+                        <!--                        /******************************************/-->
+                        <!--                        <div class="bg">-->
+                        <!--                            <div class="shape-1 d-none d-lg-block">-->
+                        <!--                                <svg width="290" height="247" viewBox="0 0 290 247" fill="none"-->
+                        <!--                                     xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                    <path d="M401.404 231.343C514.528 191.417 466.618 51.4857 401.404 -51.157C271.221 -256.056 -24.597 -142.057 8.57598 -6.15704C42.4708 132.701 159.933 8.44905 222.904 82.343C271.904 139.843 222.904 294.343 401.404 231.343Z"-->
+                        <!--                                          fill="#9774F9"/>-->
+                        <!--                                    <path d="M369.557 153.689C392.225 88.9048 366.784 -26.936 325.992 -100.584C262.839 -214.607 179.859 -243.112 105.315 -204.003C39.6971 -169.578 8.99409 -83.8227 92.9876 -2.52395C157.435 59.856 249.406 -26.7913 273.89 55.9112C283.466 88.2553 257.931 129.424 261.738 162.788C266.512 204.63 336.568 247.972 369.557 153.689Z"-->
+                        <!--                                          fill="#F974B4"/>-->
+                        <!--                                </svg>-->
+                        <!--                            </div>-->
+                        <!--                            <div class="shape-2 d-none d-lg-block">-->
+                        <!--                                <svg width="267" height="201" viewBox="0 0 267 201" fill="none"-->
+                        <!--                                     xmlns="http://www.w3.org/2000/svg">-->
+                        <!--                                    <path d="M204.872 155.749C256.407 196.473 244.687 290.938 199.89 337.712C155.094 384.485 27.1466 431.968 -93.8359 362.482C-214.818 292.997 -195.39 77.8293 -114.824 64.8907C-34.2581 51.9521 7.69422 122.298 51.5453 150.847C95.3963 179.397 160.515 120.697 204.872 155.749Z"-->
+                        <!--                                          fill="#9774F9"/>-->
+                        <!--                                    <path d="M-18.0133 126.302C-46.2172 119.744 -75.2873 145.415 -70.5017 180.619C-60.4539 254.534 3.61459 318.152 73.55 298.253C121.583 284.586 182.34 242.008 155.257 200.18C136.354 170.983 99.827 183.536 69.1907 176.517C30.8589 167.735 10.1906 132.861 -18.0133 126.302Z"-->
+                        <!--                                          fill="#F974B4"/>-->
+                        <!--                                </svg>-->
+                        <!--                            </div>-->
+                        <!--                        </div>-->
+                    </div>
+
+
+                    <!--                    /******************************************/-->
+                    <!--                    /* *********** Contenedor Der ***********  */-->
+                    <!--                    /******************************************/-->
+                    <div class="col-lg-9 right ">
+
+                        <div class="row rightHeaderRow">
+
+                        </div>
+
+
+                        <div class="row rightMainRow">
+                                <div class="rightLeftCol col-sm h-100">
+
+
+                                </div>
+                                <div class="rightRightCol col-sm">
+
+
+                                </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+                <!--    /*****************************************/-->
+                <!--    /* *********** Upper Card Shape  ***********  */-->
+                <!--    /*****************************************/-->
+                <!--                <div class="card-bg">-->
+                <!--                    <div class="shape-1">-->
+                <!--                        <svg width="426" height="455" viewBox="0 0 426 455" fill="none"-->
+                <!--                             xmlns="http://www.w3.org/2000/svg">-->
+                <!--                            <path d="M412.62 149.114C445.003 96.2412 412.253 19.8092 337.248 5.72268C179.766 -23.8536 6.86586 63.3005 0.301957 218.864C-4.20618 325.707 41.6558 477.96 145.197 451.221C217.469 432.557 216.495 349.847 251.456 292.344C295.198 220.395 380.236 201.986 412.62 149.114Z"-->
+                <!--                                  fill="#F974B4"/>-->
+                <!--                        </svg>-->
+                <!--                    </div>-->
+                <!--                </div>-->
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!--    /*****************************************/-->
+    <!--    /* *********** Bottom shape ***********  */-->
+    <!--    /*****************************************/-->
+    <!--    <div class="login-bg">-->
+    <!--        <div class="shape-2">-->
+    <!--            <svg width="888" height="479" viewBox="0 0 888 479" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+    <!--                <path d="M389 95C389 128.689 361.689 156 328 156C294.311 156 267 128.689 267 95C267 61.3106 294.311 34 328 34C361.689 34 389 61.3106 389 95Z"-->
+    <!--                      fill="#F974B4"/>-->
+    <!--                <path d="M36.5624 241.089C108.563 350.589 313.669 446.69 472.563 470.589C718.563 507.589 857.833 415.303 884.813 257.231C908.563 118.089 814.063 -27.9112 593.563 4.58885C424.374 29.5259 449.311 269.146 295.563 210.089C235.433 186.992 202.563 100.589 147.563 67.5888C78.5893 26.2049 -68.2222 81.7296 36.5624 241.089Z"-->
+    <!--                      fill="#F974B4"/>-->
+    <!--            </svg>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+
+
+</body>
+</html>
